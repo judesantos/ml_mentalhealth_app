@@ -158,14 +158,16 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     cp .env-example .env
     ```
 
-2. **Initialize the database** (if applicable):
+2. **Initialize the database**:
+    - Create a PgSql Database named `ml_mental_health`
+    ***TODO: automate setup***
 
 4. **Install the necessary dependencies**:
     ```bash
-    # Install python environment with required packages
-    make install
+    # Install python environment `ml_ci_cd` with required packages
+    conda env create -f environment.yml
     # Activate environment: ml_ci_cd
-    make activate
+    conda activate ml_ci_cd
     ```
 
 5. **Build xgboost model**
