@@ -1,6 +1,4 @@
-# ML CI/CD
-
-The **ml_ci_cd project** demonstrates best practices for code management and highlights the use of various developer tools and resources to deploy machine learning models in production through continuous integration and continuous delivery (CI/CD) processes.
+# Mental Health Support Application
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -12,111 +10,146 @@ The **ml_ci_cd project** demonstrates best practices for code management and hig
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
-**ML CI/CD** is built with a robust development workflow that utilizes a variety of tools and frameworks to optimize scalability, maintainability, and high-quality software practices.
+## Overview
 
-Makefile:
-    At its core, **ML CI/CD** uses a **Makefile** to automate repetitive development tasks, like installing dependencies with Poetry, running tests, linting the codebase with Flake8, building the package, and cleaning up artifacts. This ensures that the development process is consistent and easy to manage across team members.
+The **Mental Health Support Application** is a web-based platform designed to help users assess and track their mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.  
 
-Poetry:
-    Dependency management and packaging are handled by **Poetry**, which provides a structured and reproducible environment for development and production.
-    Poetry excels over venv and conda by combining seamless dependency management, packaging, and environment isolation into a single, intuitive tool.
+While the current implementation uses an **XGBoost model**, the application is **model-agnostic**—meaning it can be extended to support other machine learning frameworks (e.g., TensorFlow, PyTorch, Scikit-learn) with minimal modifications.
 
-Flake8:
-    **Flake8** is employed to enforce clean code practices by adhering to PEP 8 standards, with additional linting checks integrated into the CI/CD pipeline via **GitHub Actions**. This ensures that the codebase remains maintainable and free from errors.
+### **Key Features**
+- 🌍 **User-Friendly Interface**: Intuitive and accessible UI for desktop and mobile users.
+- 🔐 **Secure Authentication**: Supports user registration and login.
+- 📊 **AI-Powered Predictions**:
+  - **Remote Inference**: Connects to **external ML endpoints** (e.g., **Vertex AI** in [`ml_mentalhealth_gcp`](https://github.com/judesantos/ml_mentalhealth_gcp)).
+  - **Local Model Execution**: Runs in **standalone mode** when configured with an embedded model.
+- 🔄 **Model-Agnostic Design**: Supports various ML frameworks; additional models can be integrated.
+- ☁️ **Cloud-Native Deployment**: Deployable via **Google Cloud Platform (GCP)** with **Vertex AI and Kubernetes (GKE)**.
+- 🚀 **Automated CI/CD Pipeline**: Uses **Terraform-based automation** for fully automated deployment and updates.
 
-SqlAlchemy:
-    For data access, the project uses **SQLAlchemy**, a powerful ORM that simplifies database interactions through declarative models and supports both synchronous and asynchronous operations, making it highly suitable for modern, scalable applications.
-    Databases are preferred over CSV files in production due to their scalability, support for concurrent access, and ability to enforce data integrity through constraints. It offers optimized query performance with indexing, transactional support (ACID), and robust security features like authentication and encryption. Databases handle complex relationships, provides tools for recovery, integrates seamlessly with APIs for data access. Supports audit trails and reliable operations in multi-user environments, suitable for large, complex, and dynamic datasets.
+### **Architecture Overview**
+The application follows a **flexible inference architecture**:
+1. **Frontend**: A web-based interface for user interactions.
+2. **Backend API**:
+   - Routes user inputs to **ML inference endpoints** (e.g., Vertex AI).
+   - Supports **standalone execution** for models deployed locally.
+3. **ML Integration**:
+   - Connects to **Vertex AI model endpoints** for cloud-based predictions.
+   - Allows embedding locally deployed models for **offline predictions**.
+4. **Cloud Infrastructure**:
+   - Provisioned via **Terraform** for reproducible deployments.
+   - Runs on **GKE, Cloud Run, or standalone Docker containers**.
 
-Jupyter:
-    During the development phase, **Jupyter Notebooks** are used for prototyping and experimenting with machine learning models. Once validated, the exploratory code is transformed into production-ready application code, ensuring reproducibility and maintaining a clear boundary between research and deployment.
+### **Deployment Modes**
+This application can be deployed in two primary configurations:
+1. **Cloud-based Inference**:  
+   - Uses **Vertex AI endpoints** for model predictions.  
+   - Managed as part of the [`ml_mentalhealth_gcp`](https://github.com/judesantos/ml_mentalhealth_gcp) pipeline.
+2. **Standalone Execution**:  
+   - Runs locally with an embedded ML model.  
+   - Requires **manual integration** for additional models.
 
-The project adopts a clean and modular code architecture, promoting separation of concerns with layers for data access, business logic, and API interactions.
+### **Extensibility**
+- 🛠 **Custom Model Integration**: Developers can add support for new ML models by modifying the backend API.
+- 🔄 **Hybrid Deployment**: Supports both **cloud-based inference** and **local execution**.
+- 📦 **Dockerized Setup**: Ensures portability and scalability.
 
-Flask:
-    The web application is powered by **Flask**, which serves as a lightweight framework for building RESTful APIs that expose model predictions and manage requests. To enhance performance, the application integrates **asynchronous APIs**, allowing it to handle high concurrency efficiently, especially for I/O-bound tasks.
+---
 
-Loguru:
-    Logging is managed using **Loguru**, providing structured, readable, and easily configurable logs for debugging and monitoring the system. Log rotation and retention policies are also integrated to ensure effective logging management.
+## Tools
 
-Git, Github Actions:
-    Finally, **GitHub Actions** is used to automate CI/CD workflows, running tests, linting, and code quality checks on every commit or pull request. This ensures that the application is thoroughly validated before being deployed to staging or production environments. By combining these tools and practices, the project delivers a scalable, maintainable, and high-quality solution for deploying machine learning models in production.
+The **ML Mental health** application is built on top of [ML CI/CD](https://github.com/judesantos/ml_ci_cd.git), a CI/CD framework built with a development workflow that uses tools and frameworks to optimize scalability, maintainability, and high-quality software practices.
 
-## Other Resources
-- **Git**: Version control for codebase management.
-- **Unit Testing**: Ensures functionality and reliability of code.
+For additional information about the tools and technologies used, see: [ML CI/CD](https://github.com/judesantos/ml_ci_cd.git).
+
 
 ## Project Structure
 ```
-.env
-.env-development
-.gitignore
-data/
-    rent_apartments.csv
-logs/
-    app.log
-Makefile
-models/
-    rf_db_v1
-notebooks/
-    random_forest_model.ipynb
-poetry.lock
-pyproject.toml
-README.md
-setup.cfg
-src/
-    config/
-        __init__.py
-        db.py
-        logging.py
-        model.py
-    db/
-        rent_apartment.py
-    model/
-        pipeline/
-            collection.py
-            preparation.py
-            rf_model.py
-        service.py
-    runner.py
+├── .env-development                            # Application environment variables (create a .env copy)
+├── .github                                     # Git actions - For CI/CD code checker step
+│   ├── actions
+│   │   └── build_app
+│   │       └── action.yml
+│   └── workflows
+│       └── lint.yml
+├── .gitignore
+├── Dockerfile                                  # Dockerized app deployment 
+├── Makefile                                    # Command line interface used for linting, build, setup, testing
+├── README.md
+├── app                                         # Backend services: Model training, deployment, inference service
+│   ├── app_main.py
+│   ├── ml
+│   │   ├── config
+│   │   │   ├── db.py
+│   │   │   ├── gcp.py
+│   │   │   ├── logging.py
+│   │   │   └── model.py
+│   │   ├── gcp_endpoint.py
+│   │   └── model
+│   │       ├── model_builder.py
+│   │       ├── model_inference.py
+│   │       ├── pipeline
+│   │       │   ├── collection.py
+│   │       │   ├── preparation.py
+│   │       │   └── xgb_model.py
+│   │       └── schema
+│   │           └── ml_features.py
+│   ├── model_inference_main.py
+│   ├── model_train_main.py
+│   └── web                                      # Application user interface
+│       ├── app.py                               # Flask instantiation, configuration
+│       ├── extensions.py
+│       ├── models
+│       │   ├── mental_health.py
+│       │   ├── mental_health_inference.py
+│       │   ├── user.py
+│       │   └── user_inference_log.py
+│       ├── routes                               # Application web routes: authentication, prediction
+│       │   ├── auth.py
+│       │   └── main.py
+│       ├── settings.py
+│       ├── static                               # Front-end display: Includes JS frameworks, css
+│       │   ├── css
+│       │   │   ├── bootstrap.min.css
+│       │   │   └── styles.css
+│       │   └── js
+│       │       ├── bootstrap.bundle.min.js
+│       │       ├── bootstrap.min.js
+│       │       ├── popper.min.js
+│       │       ├── sdfsdfbootstrap.bundle.min.js.map
+│       │       └── sdfsdfpopper.min.js.map
+│       └── templates                           # Front-end display, redirects, forms
+│           ├── base.html
+│           ├── error.html
+│           ├── evaluation.html
+│           ├── home.html
+│           ├── login.html
+│           ├── report.html
+│           ├── signup.html
+│           └── ui
+│               ├── forms
+│               │   ├── login_form.py
+│               │   ├── ml_input_form.py
+│               │   └── signup_form.py
+│               └── ml_features.py
+├── certs                                       # SSL Certificates deployment path
+├── data                                        # CSV data deployment path
+├── environment.yml                             # Conda development environment
+├── logs                                        # Application logs path
+├── models                                      # Pipeline artifacts: serialized model path
+├── notebooks                                   # Developer notebooks. Pre-deployment files
+│   ├── pgsql_import.ipynb
+│   └── random_forest_model.ipynb
+├── requirements.txt                            # Application deployment environment 
+└── setup.cfg                                   # flake8 linting configuration file
+
 ```
-### Key Directories and Files
 
-- **data/**: Contains the dataset files used for training and evaluation.
-- **logs/**: Stores log files generated during the execution of the project.
-- **models/**: Contains saved models and related artifacts.
-- **notebooks/**: Jupyter notebooks for exploratory data analysis and model development.
-- **src/**: Main source code directory.
-  - **config/**: Configuration files and scripts.
-    - `db.py`: Database configuration and connection setup.
-    - `logging.py`: Logging configuration.
-    - `model.py`: Model configuration.
-  - **db/**: Database-related scripts.
-    - `rent_apartment.py`: Script for handling rent apartment data.
-  - **model/**: Model-related scripts.
-    - **pipeline/**: Scripts for data collection, preparation, and model training.
-      - `collection.py`: Data loading script.
-      - `preparation.py`: Model preparation script.
-      - `rf_model.py`: Random forest model training script.
-    - `service.py`: Service layer for model operations.
-  - `runner.py`: Main script to run the project.
-
-### Configuration Files
-
-- **.env**: Environment variables for the project.
-- **.env-development**: Environment variables for the development environment.
-- **Makefile**: Contains make commands like installation, running, and testing.
-- **pyproject.toml**: Project configuration file for Poetry.
-- **setup.cfg**: Configuration file for setup tools. Flake8 configuration settings.
-
-## Installation
-To set up the project:
+## Getting Started
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/yourproject.git
-    cd yourproject
+    git clone git@github.com:judesantos/ml_mentalhealth_app.git
+    cd ml_mentalhealth_app
     ```
 
 2. **Install Poetry** (if not already installed):
@@ -134,15 +167,21 @@ To set up the project:
 
 5. **Install the necessary dependencies**:
     ```bash
+    # Install python environment with required packages
     make install
+    # Activate environment: ml_ci_cd
+    make activate
     ```
 
-    This command will:
-    - Install all required Python packages listed in `pyproject.toml`.
-    - Set up the virtual environment managed by Poetry.
+6. **Build xgboost model**
+    ```bash
+    make build
+    ```
 
-After completing these steps, the project should be set up and ready to use.
-
+7. **Start standalone application**
+   ```bash
+   make start
+   ```
 
 ## Usage
 To train a model, run:
@@ -150,13 +189,11 @@ To train a model, run:
 make run
 ```
 
-## Testing
-To run the test suite, use:
+## Code checker
+To format code and check for pep8 violations:
 ```bash
 make test
 ```
-
-This command runs all unit tests and provides detailed reports on test coverage. The testing suite is designed to validate code correctness and ensure functionality across all components.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
