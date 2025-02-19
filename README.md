@@ -152,20 +152,15 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     cd ml_mentalhealth_app
     ```
 
-2. **Install Poetry** (if not already installed):
-    ```bash
-    curl -sSL https://install.python-poetry.org | python3 -
-    ```
-
-3. **Set up environment variables**:
+2. **Set up environment variables**:
     - Copy the `.env-example` file to `.env` and update the variables as needed:
     ```bash
     cp .env-example .env
     ```
 
-4. **Initialize the database** (if applicable):
+2. **Initialize the database** (if applicable):
 
-5. **Install the necessary dependencies**:
+4. **Install the necessary dependencies**:
     ```bash
     # Install python environment with required packages
     make install
@@ -173,27 +168,15 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     make activate
     ```
 
-6. **Build xgboost model**
+5. **Build xgboost model**
     ```bash
     make build
     ```
 
-7. **Start standalone application**
+6. **Start standalone application**
    ```bash
    make start
    ```
-
-## Usage
-To train a model, run:
-```bash
-make run
-```
-
-## Code checker
-To format code and check for pep8 violations:
-```bash
-make test
-```
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
