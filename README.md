@@ -1,12 +1,9 @@
 # Mental Health Support Application
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Processes and Technologies](#processes-and-technologies)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Testing](#testing)
+- [Overview](#overview)
+- [Project Structure](#Project-Structure)
+- [Getting Started](#Getting Started)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -55,7 +52,7 @@ This application can be deployed in two primary configurations:
 
 ---
 
-## Tools
+### Tools
 
 The **ML Mental health** application is built on top of [ML CI/CD](https://github.com/judesantos/ml_ci_cd.git), a CI/CD framework built with a development workflow that uses tools and frameworks to optimize scalability, maintainability, and high-quality software practices.
 
@@ -169,16 +166,29 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     # Activate environment: ml_ci_cd
     conda activate ml_ci_cd
     ```
+5. **Copy a valid SSL Certificate files
+    - Must be a certificate and private key with a .pem extension
+    - For the development environment, you may substitute a self-signed certificate using openssl.
 
-5. **Build xgboost model**
+
+6. **Start the standalone application**
     ```bash
-    make build
+    make start
+
+    # From any browser, go to `https://localhost`.
     ```
 
-6. **Start standalone application**
-   ```bash
-   make start
-   ```
+7. **Dockerized standalone applicaiton (Optional)**
+    ```
+    # Build a docker image using linux-amd64 platform.
+    # Replace <docker-image-name> with your preferred name.
+    # '.' indicates find the Dockerfile in the current path.
+
+    docker build --platform=linux/amd64 <docker-image-name> .
+
+    # From any browser, go to `https://localhost`.
+    ```
+
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
