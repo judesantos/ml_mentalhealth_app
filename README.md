@@ -1,8 +1,10 @@
 # Mental Health Support Application
 
 <p align="center">
-  <img src="images/ml-mentalhealth-app.gif" width=600 />
+  <img src="images/ml-mentalhealth-app.gif" />
 </p>
+
+---
 
 ## Table of Contents
 - [Overview](#overview)
@@ -10,6 +12,8 @@
 - [Getting Started](#Getting-Started)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
 
 ## Overview
 
@@ -54,14 +58,13 @@ This application can be deployed in two primary configurations:
 - 🔄 **Hybrid Deployment**: Supports both **cloud-based inference** and **local execution**.
 - 📦 **Dockerized Setup**: Ensures portability and scalability.
 
----
-
 ### Tools
 
 The **ML Mental health** application is built on top of [ML CI/CD](https://github.com/judesantos/ml_ci_cd.git), a CI/CD framework built with a development workflow that uses tools and frameworks to optimize scalability, maintainability, and high-quality software practices.
 
 For additional information about the tools and technologies used, see: [ML CI/CD](https://github.com/judesantos/ml_ci_cd.git).
 
+---
 
 ## Project Structure
 ```
@@ -142,8 +145,9 @@ For additional information about the tools and technologies used, see: [ML CI/CD
 │   └── random_forest_model.ipynb
 ├── requirements.txt                            # Application deployment environment
 └── setup.cfg                                   # flake8 linting configuration file
-
 ```
+
+---
 
 ## Getting Started
 
@@ -193,9 +197,12 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     # From any browser, go to `https://localhost`.
     ```
 
+---
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
+
+---
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
