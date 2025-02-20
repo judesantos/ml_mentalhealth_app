@@ -29,7 +29,7 @@ This project contains the Front-End Application for the Mental Health Prediction
 
 This front-end application serves as the user interface for interacting with the model, allowing users to input relevant data and receive predictions. It integrates with the back-end services hosted on GCP to provide real-time mental health predictions. 
 
-It can also serve as a stand-alone application as it implements a built-in training pipeline and inference services.
+It can also be configured as a stand-alone application, as it includes a built-in training pipeline and inference services.
 
 While the current implementation uses an **XGBoost model**, the application is **model-agnostic**—meaning it can be extended to support other machine learning frameworks (e.g., TensorFlow, PyTorch, Scikit-learn) with minimal modifications.
 
