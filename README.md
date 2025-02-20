@@ -1,15 +1,19 @@
 # Mental Health Support Application
 
+<p align="center">
+  <img src="images/ml-mentalhealth-app.gif" width=600 />
+</p>
+
 ## Table of Contents
 - [Overview](#overview)
 - [Project Structure](#Project-Structure)
-- [Getting Started](#Getting Started)
+- [Getting Started](#Getting-Started)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
 
-The **Mental Health Support Application** is a web-based platform designed to help users assess and track their mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.  
+The **Mental Health Support Application** is a web-based platform designed to help users assess and track their mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.
 
 While the current implementation uses an **XGBoost model**, the application is **model-agnostic**—meaning it can be extended to support other machine learning frameworks (e.g., TensorFlow, PyTorch, Scikit-learn) with minimal modifications.
 
@@ -38,11 +42,11 @@ The application follows a **flexible inference architecture**:
 
 ### **Deployment Modes**
 This application can be deployed in two primary configurations:
-1. **Cloud-based Inference**:  
-   - Uses **Vertex AI endpoints** for model predictions.  
+1. **Cloud-based Inference**:
+   - Uses **Vertex AI endpoints** for model predictions.
    - Managed as part of the [`ml_mentalhealth_gcp`](https://github.com/judesantos/ml_mentalhealth_gcp) pipeline.
-2. **Standalone Execution**:  
-   - Runs locally with an embedded ML model.  
+2. **Standalone Execution**:
+   - Runs locally with an embedded ML model.
    - Requires **manual integration** for additional models.
 
 ### **Extensibility**
@@ -69,7 +73,7 @@ For additional information about the tools and technologies used, see: [ML CI/CD
 │   └── workflows
 │       └── lint.yml
 ├── .gitignore
-├── Dockerfile                                  # Dockerized app deployment 
+├── Dockerfile                                  # Dockerized app deployment
 ├── Makefile                                    # Command line interface used for linting, build, setup, testing
 ├── README.md
 ├── app                                         # Backend services: Model training, deployment, inference service
@@ -136,7 +140,7 @@ For additional information about the tools and technologies used, see: [ML CI/CD
 ├── notebooks                                   # Developer notebooks. Pre-deployment files
 │   ├── pgsql_import.ipynb
 │   └── random_forest_model.ipynb
-├── requirements.txt                            # Application deployment environment 
+├── requirements.txt                            # Application deployment environment
 └── setup.cfg                                   # flake8 linting configuration file
 
 ```
