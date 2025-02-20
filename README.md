@@ -187,7 +187,7 @@ For additional information about the tools and technologies used, see: [ML CI/CD
     ```
 
 7. **Dockerized standalone applicaiton (Optional)**
-    ```
+    ```bash
     # Build a docker image using linux-amd64 platform.
     # Replace <docker-image-name> with your preferred name.
     # '.' indicates find the Dockerfile in the current path.
