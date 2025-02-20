@@ -17,17 +17,19 @@
 
 ## Overview
 
+This project contains the Front-End Application for the Mental Health Prediction Model, designed as the UI component of the Capstone Project.
+
 ### Related Repositories & Documentation:
 
 **GCP Deployment:** The back-end services, including model inference and infrastructure, are implemented in the [GCP Implementation Repository](https://github.com/judesantos/ml_mentalhealth_gcp.git).
 
-**Project Implementation:** The core machine learning pipeline and model training are available in [SpringBoard-DSC_Capstone_Project_3](https://github.com/judesantos/Springboard_DS_ML/tree/main/SpringBoard-DSC_Capstone_Project_3).
+**Project Implementation:** The core machine learning pipeline and model training are available in the [Data Science/ML_Project](https://github.com/judesantos/Springboard_DS_ML/tree/main/SpringBoard-DSC_Capstone_Project_3).
   
-**Project Proposal (UI Section):** The front-end design and functionality are outlined in the [Final Capstone Mental Health Prediction App Proposal](SpringBoard-DSC_Capstone_Project_3/Final_Capstone_Mental_Health_Prediction_App.pdf).
+**Project Proposal (UI Section):** The front-end design and functionality are outlined in the [Mental Health Prediction Proposal](SpringBoard-DSC_Capstone_Project_3/Final_Capstone_Mental_Health_Prediction_App.pdf).
 
-This repository extends the work from the Capstone Project by implementing the machine learning frontend using industry standard CI/CD
+This front-end application serves as the user interface for interacting with the model, allowing users to input relevant data and receive predictions. It integrates with the back-end services hosted on GCP to provide real-time mental health predictions. 
 
-The **Mental Health Support Application** is a web-based platform designed to help users assess and track mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.
+It can also serve as a stand-alone application as it implements a built-in training pipeline and inference services.
 
 While the current implementation uses an **XGBoost model**, the application is **model-agnostic**—meaning it can be extended to support other machine learning frameworks (e.g., TensorFlow, PyTorch, Scikit-learn) with minimal modifications.
 
