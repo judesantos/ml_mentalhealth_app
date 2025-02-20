@@ -17,7 +17,7 @@
 
 ## Overview
 
-**Related Repositories & Documentation:** 
+### Related Repositories & Documentation:
 
 **GCP Deployment:** The back-end services, including model inference and infrastructure, are implemented in the [GCP Implementation Repository](https://github.com/judesantos/ml_mentalhealth_gcp.git).
 
