@@ -17,7 +17,7 @@
 
 ## Overview
 
-The **Mental Health Support Application** is a web-based platform designed to help users assess and track their mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.
+The **Mental Health Support Application** is a web-based platform designed to help users assess and track mental well-being. It provides mental health insights by integrating with **third-party machine learning endpoints** (such as **Google Cloud Vertex AI**) or operating as a **standalone application** with a built-in model deployment pipeline.
 
 While the current implementation uses an **XGBoost model**, the application is **model-agnostic**—meaning it can be extended to support other machine learning frameworks (e.g., TensorFlow, PyTorch, Scikit-learn) with minimal modifications.
 
