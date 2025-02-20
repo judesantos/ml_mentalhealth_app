@@ -15,16 +15,9 @@ run:
 start:
 	@python3 -m app.app_main
 
-# Conda environment operations
-install:
-	@conda env create -f environment.yml
-
-activate:
-	@conda activate ml_ci_cd
-
 # Cleanup project path
 clean:
 	@rm -rf `find . -name __pycache__`
 
-.PHONY: install activate build run check clean start
+.PHONY: build run check clean start
 #.DEFAULT_GOAL :=

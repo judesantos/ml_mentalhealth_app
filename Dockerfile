@@ -20,7 +20,7 @@ RUN mkdir -p logs
 RUN mkdir -p models
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt gunicorn
 
 RUN rm requirements.txt
 

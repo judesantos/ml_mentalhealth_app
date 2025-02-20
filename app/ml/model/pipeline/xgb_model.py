@@ -32,10 +32,9 @@ from sklearn.metrics import accuracy_score, precision_score
 from sklearn.metrics import recall_score, f1_score
 
 
-from ml.config import model_settings as settings
-from ml.model.pipeline.preparation import get_mental_health_data
-from ml.model.pipeline.preparation import MentalHealthData
-
+from app.ml.config import model_settings as settings
+from app.ml.model.pipeline.preparation import get_mental_health_data
+from app.ml.model.pipeline.preparation import MentalHealthData
 
 """
   Xgboost model class helper functions and variables
