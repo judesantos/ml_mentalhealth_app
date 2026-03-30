@@ -92,3 +92,6 @@ certs/*
 !certs/
 models/*
 !models/
+
+# Coach memsearch
+.memsearch/
