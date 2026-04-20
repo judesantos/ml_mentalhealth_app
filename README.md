@@ -1,7 +1,9 @@
 # Mental Health Support Application
 
+The Mental Health Support Application is a web-based platform designed for users to assess and track their mental well-being.  It offers valuable mental health insights by either integrating with external machine learning services like Google Cloud Vertex AI or functioning independently with its own built-in model deployment pipeline.
+
 <p align="center">
-  <img src="images/ml-mentalhealth-app.gif" />
+  <img src="images/ml-mentalhealth-app.gif" alt="Video of app in use"  >
 </p>
 
 ---
